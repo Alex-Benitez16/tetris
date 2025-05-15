@@ -23,6 +23,9 @@ public:
   ~Renderer();
 
   // Main functions
+  void init_window();
+  void close_window();
+
   bool window_should_close();
   void begin_drawing();
   void end_drawing();

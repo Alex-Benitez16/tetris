@@ -7,7 +7,6 @@ Renderer::Renderer() {
   width = 800;
   height = 600;
   background_color = RAYWHITE;
-  InitWindow(400, 400, "Tetris");
 }
 
 Renderer::Renderer(int _block_size, int _width, int _height,
@@ -16,7 +15,6 @@ Renderer::Renderer(int _block_size, int _width, int _height,
   width = _width;
   height = _height;
   background_color = _background_color;
-  InitWindow(_width, _height, "Tetris");
 }
 
 Renderer::~Renderer() { CloseWindow(); }
@@ -44,6 +42,9 @@ void Renderer::draw_board_grid(Board board) {
 }
 
 // Main functions
+
+void Renderer::init_window() { InitWindow(width, height, "Tetris"); }
+void Renderer::close_window() { CloseWindow(); }
 
 bool Renderer::window_should_close() { return WindowShouldClose(); }
 
