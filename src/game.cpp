@@ -37,9 +37,12 @@ Game::Game(int _block_size, int _width, int _height, Color _background_color,
 }
 
 Game::~Game() {
-  delete current_piece;
-  delete next_piece;
-  delete held_piece;
+  if (current_piece)
+    delete current_piece;
+  if (next_piece)
+    delete next_piece;
+  if (held_piece)
+    delete held_piece;
 }
 
 // Getters and setters
@@ -49,10 +52,23 @@ bool Game::get_game_over() { return game_over; }
 int Game::get_timer() { return timer; }
 
 void Game::set_current_piece(Piece *_current_piece) {
+  if (current_piece) {
+    delete current_piece;
+  }
   current_piece = _current_piece;
 }
-void Game::set_next_piece(Piece *_next_piece) { next_piece = _next_piece; }
-void Game::set_held_piece(Piece *_held_piece) { held_piece = _held_piece; }
+void Game::set_next_piece(Piece *_next_piece) {
+  if (next_piece) {
+    delete next_piece;
+  }
+  next_piece = _next_piece;
+}
+void Game::set_held_piece(Piece *_held_piece) {
+  if (held_piece) {
+    delete held_piece;
+  }
+  held_piece = _held_piece;
+}
 
 void Game::draw() {
   BeginDrawing();
