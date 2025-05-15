@@ -22,10 +22,14 @@ Renderer::~Renderer() {}
 // Helper functions
 
 void Renderer::draw_board_margin(Board board) {
-  Rectangle rec =
-      (Rectangle){board.get_offset().x, board.get_offset().y,
-                  (float)board.get_width(), (float)board.get_height()};
-  DrawRectangleLinesEx(rec, 3, RAYWHITE);
+  int x = board.get_offset().x;
+  int y = board.get_offset().y;
+  int b_width = board.get_width();
+  int b_height = board.get_height();
+
+  DrawRectangle(x, y, b_width, b_height, RAYWHITE);
+  DrawRectangle(x - 1, y - 1, b_width + 2, b_height + 2, RAYWHITE);
+  DrawRectangle(x - 2, y - 2, b_width + 4, b_height + 4, RAYWHITE);
 }
 
 void Renderer::draw_board_grid(Board board) {
