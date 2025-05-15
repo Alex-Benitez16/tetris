@@ -18,16 +18,15 @@ Game::Game() {
 }
 
 Game::Game(int _block_size, int _width, int _height, Color _background_color,
-           double _fall_speed) {
+           double _fall_speed, Vector2 _board_offset) {
   current_piece = nullptr;
   next_piece = nullptr;
   held_piece = nullptr;
 
   renderer = Renderer(_block_size, _width, _height, _background_color);
 
-  Vector2 board_offset = (Vector2){300, 100};
   std::string text = "Puntaje: ";
-  board = Board(board_offset, _block_size * GRID_WIDTH,
+  board = Board(_board_offset, _block_size * GRID_WIDTH,
                 _block_size * GRID_HEIGHT, text);
 
   score = 0;

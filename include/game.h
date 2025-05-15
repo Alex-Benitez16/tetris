@@ -25,7 +25,7 @@ public:
   // Constructors and destructors
   Game();
   Game(int _block_size, int _width, int _height, Color _background_color,
-       double _fall_speed);
+       double _fall_speed, Vector2 _board_offset);
 
   ~Game();
 
