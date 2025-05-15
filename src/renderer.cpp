@@ -24,9 +24,9 @@ Renderer::~Renderer() { CloseWindow(); }
 // Helper functions
 
 void Renderer::draw_board_margin(Board board) {
-  Rectangle rec =
-      (Rectangle){board.get_offset().x, board.get_offset().y,
-                  (float)board.get_width(), (float)board.get_height()};
+  Rectangle rec = (Rectangle){board.get_offset().x, board.get_offset().y,
+                              (float)board.get_width() + board.get_offset().x,
+                              (float)board.get_height() + board.get_offset().y};
   DrawRectangleLinesEx(rec, 3, RAYWHITE);
 }
 
