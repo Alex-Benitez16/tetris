@@ -10,7 +10,7 @@ int main() {
   game.set_next_piece(new Piece());
   game.set_held_piece(new Piece());
 
-  while (!WindowShouldClose()) {
+  while (!game.get_renderer()->window_should_close()) {
     game.draw();
   }
 

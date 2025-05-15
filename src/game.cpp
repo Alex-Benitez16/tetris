@@ -51,6 +51,8 @@ int Game::get_score() { return score; }
 bool Game::get_game_over() { return game_over; }
 int Game::get_timer() { return timer; }
 
+Renderer *Game::get_renderer() { return &renderer; }
+
 void Game::set_current_piece(Piece *_current_piece) {
   if (current_piece) {
     delete current_piece;
