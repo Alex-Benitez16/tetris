@@ -7,6 +7,7 @@ Renderer::Renderer() {
   width = 800;
   height = 600;
   background_color = RAYWHITE;
+  InitWindow(400, 400, "Tetris");
 }
 
 Renderer::Renderer(int _block_size, int _width, int _height,
@@ -30,20 +31,22 @@ void Renderer::draw_board_margin(Board board) {
 }
 
 void Renderer::draw_board_grid(Board board) {
-  for (int i = 0; i < GRID_HEIGHT; i++) {
-    DrawLine(board.get_offset().x, i * block_size, board.get_offset().x + width,
-             i * block_size, (Color){245, 245, 245, 180});
+  for (int i = 0; i <= GRID_HEIGHT; i++) {
+    DrawLine(board.get_offset().x, i * block_size,
+             board.get_offset().x + board.get_width(), i * block_size,
+             (Color){245, 245, 245, 180});
   }
-  for (int i = 0; i < GRID_WIDTH; i++) {
+  for (int i = 0; i <= GRID_WIDTH; i++) {
     DrawLine(i * block_size, board.get_offset().y, i * block_size,
-             board.get_offset().y + height, (Color){245, 245, 245, 180});
+             board.get_offset().y + board.get_height(),
+             (Color){245, 245, 245, 180});
   }
 }
 
 // Main functions
 
 void Renderer::begin_drawing() { BeginDrawing(); }
-void Renderer::end_drawing() { end_drawing(); }
+void Renderer::end_drawing() { EndDrawing(); }
 
 void Renderer::clear_background() { ClearBackground(background_color); }
 
