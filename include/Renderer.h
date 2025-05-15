@@ -23,6 +23,8 @@ public:
   ~Renderer();
 
   // Main functions
+  void begin_drawing();
+  void end_drawing();
   void clear_background();
   void draw_board(Board board);
 };

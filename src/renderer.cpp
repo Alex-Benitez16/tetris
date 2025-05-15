@@ -42,6 +42,9 @@ void Renderer::draw_board_grid(Board board) {
 
 // Main functions
 
+void Renderer::begin_drawing() { BeginDrawing(); }
+void Renderer::end_drawing() { end_drawing(); }
+
 void Renderer::clear_background() { ClearBackground(background_color); }
 
 void Renderer::draw_board(Board board) {

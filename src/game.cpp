@@ -71,8 +71,8 @@ void Game::set_held_piece(Piece *_held_piece) {
 }
 
 void Game::draw() {
-  BeginDrawing();
+  renderer.begin_drawing();
   renderer.clear_background();
   renderer.draw_board(board);
-  EndDrawing();
+  renderer.end_drawing();
 }
