@@ -55,6 +55,6 @@ void Renderer::end_drawing() { EndDrawing(); }
 void Renderer::clear_background() { ClearBackground(background_color); }
 
 void Renderer::draw_board(Board board) {
-  draw_board_grid(board);
   draw_board_margin(board);
+  draw_board_grid(board);
 }
