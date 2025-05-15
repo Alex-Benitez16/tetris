@@ -27,9 +27,9 @@ void Renderer::draw_board_margin(Board board) {
   int b_width = board.get_width();
   int b_height = board.get_height();
 
-  DrawRectangle(x, y, b_width, b_height, RAYWHITE);
-  DrawRectangle(x - 1, y - 1, b_width + 2, b_height + 2, RAYWHITE);
-  DrawRectangle(x - 2, y - 2, b_width + 4, b_height + 4, RAYWHITE);
+  DrawRectangleLines(x, y, b_width, b_height, RAYWHITE);
+  DrawRectangleLines(x - 1, y - 1, b_width + 2, b_height + 2, RAYWHITE);
+  DrawRectangleLines(x - 2, y - 2, b_width + 4, b_height + 4, RAYWHITE);
 }
 
 void Renderer::draw_board_grid(Board board) {
