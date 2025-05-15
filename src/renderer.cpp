@@ -45,6 +45,8 @@ void Renderer::draw_board_grid(Board board) {
 
 // Main functions
 
+bool Renderer::window_should_close() { return WindowShouldClose(); }
+
 void Renderer::begin_drawing() { BeginDrawing(); }
 void Renderer::end_drawing() { EndDrawing(); }
 

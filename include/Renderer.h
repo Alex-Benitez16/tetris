@@ -23,6 +23,7 @@ public:
   ~Renderer();
 
   // Main functions
+  bool window_should_close();
   void begin_drawing();
   void end_drawing();
   void clear_background();
