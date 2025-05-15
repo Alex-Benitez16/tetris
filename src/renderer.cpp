@@ -17,7 +17,7 @@ Renderer::Renderer(int _block_size, int _width, int _height,
   background_color = _background_color;
 }
 
-Renderer::~Renderer() { CloseWindow(); }
+Renderer::~Renderer() {}
 
 // Helper functions
 

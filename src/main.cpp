@@ -10,9 +10,12 @@ int main() {
   game.set_next_piece(new Piece());
   game.set_held_piece(new Piece());
 
+  game.get_renderer()->init_window();
+
   while (!game.get_renderer()->window_should_close()) {
     game.draw();
   }
 
+  game.get_renderer()->close_window();
   return 0;
 }
