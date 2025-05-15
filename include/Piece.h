@@ -10,15 +10,15 @@
   (Color) { 0, 0, 0, 0 }
 
 class Piece {
-private:
+protected:
   int shape[3][3];
   Color color;
-  Vector2 position;
+  Vector2 positions[4];
   char rotation_state;
 
 public:
   Piece();
-  Piece(char _shape, Color _color, Vector2 _position);
+  Piece(char _shape, Color _color, Vector2 _positions[4]);
 };
 
 #endif
