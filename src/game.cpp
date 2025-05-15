@@ -48,6 +48,12 @@ int Game::get_score() { return score; }
 bool Game::get_game_over() { return game_over; }
 int Game::get_timer() { return timer; }
 
+void Game::set_current_piece(Piece *_current_piece) {
+  current_piece = _current_piece;
+}
+void Game::set_next_piece(Piece *_next_piece) { next_piece = _next_piece; }
+void Game::set_held_piece(Piece *_held_piece) { held_piece = _held_piece; }
+
 void Game::draw() {
   BeginDrawing();
   renderer.clear_background();

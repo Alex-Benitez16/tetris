@@ -1,6 +1,5 @@
 #include "../include/renderer.h"
 #include "raylib.h"
-#include <ratio>
 
 // Constructors and destructors
 Renderer::Renderer() {

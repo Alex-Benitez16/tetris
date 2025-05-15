@@ -34,6 +34,10 @@ public:
   bool get_game_over();
   int get_timer();
 
+  void set_current_piece(Piece *_current_piece);
+  void set_next_piece(Piece *_next_piece);
+  void set_held_piece(Piece *_held_piece);
+
   void draw();
 };
 

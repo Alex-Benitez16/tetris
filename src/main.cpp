@@ -6,6 +6,9 @@
 
 int main() {
   Game game(16, 800, 400, BLACK, 10);
+  game.set_current_piece(new Piece());
+  game.set_next_piece(new Piece());
+  game.set_held_piece(new Piece());
 
   while (!WindowShouldClose()) {
     game.draw();
