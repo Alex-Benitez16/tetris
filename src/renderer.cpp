@@ -25,7 +25,8 @@ void Renderer::draw_board_margin(Board board) {
   Rectangle rec =
       (Rectangle){board.get_offset().x, board.get_offset().y,
                   (float)board.get_width(), (float)board.get_height()};
-  DrawRectangleLinesEx(rec, 3, RAYWHITE);
+  DrawRectangleLinesEx(rec, 6, RAYWHITE);
+  DrawRectangleRec(rec, BLACK);
 }
 
 void Renderer::draw_board_grid(Board board) {
