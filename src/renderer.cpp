@@ -1,4 +1,4 @@
-#include "../include/Renderer.h"
+#include "../include/renderer.h"
 #include "raylib.h"
 
 Renderer::Renderer() {

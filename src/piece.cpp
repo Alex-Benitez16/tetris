@@ -1,4 +1,4 @@
-#include "../include/Piece.h"
+#include "../include/piece.h"
 
 Piece::Piece() {
   color = BLANK;
