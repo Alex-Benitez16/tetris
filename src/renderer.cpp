@@ -22,22 +22,23 @@ Renderer::~Renderer() {}
 // Helper functions
 
 void Renderer::draw_board_margin(Board board) {
-  Rectangle rec =
-      (Rectangle){board.get_offset().x, board.get_offset().y,
-                  (float)board.get_width(), (float)board.get_height()};
-  DrawRectangleLinesEx(rec, 6, RAYWHITE);
-  DrawRectangleRec(rec, BLACK);
+  Rectangle rec = (Rectangle){
+      board.get_offset().x - 6, board.get_offset().y - 6,
+      (float)board.get_width() + 12, (float)board.get_height() + 12};
+  DrawRectangleLinesEx(rec, 6, RED);
+  DrawRectangleLines(board.get_offset().x, board.get_offset().y,
+                     board.get_width(), board.get_height(), RAYWHITE);
 }
 
 void Renderer::draw_board_grid(Board board) {
-  for (int i = 0; i <= GRID_HEIGHT; i++) {
-    DrawLine(board.get_offset().x, i * block_size,
-             board.get_offset().x + board.get_width(), i * block_size,
+  int x = board.get_offset().x;
+  int y = board.get_offset().y;
+  for (int i = 1; i < GRID_HEIGHT; i++) {
+    DrawLine(x, i * block_size + y, x + board.get_width(), i * block_size + y,
              (Color){245, 245, 245, 180});
   }
-  for (int i = 0; i <= GRID_WIDTH; i++) {
-    DrawLine(i * block_size, board.get_offset().y, i * block_size,
-             board.get_offset().y + board.get_height(),
+  for (int i = 1; i < GRID_WIDTH; i++) {
+    DrawLine(i * block_size + x, y, i * block_size + x, y + board.get_height(),
              (Color){245, 245, 245, 180});
   }
 }
