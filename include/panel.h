@@ -2,6 +2,7 @@
 #define PANEL_H
 
 #include "raylib.h"
+#include <fstream>
 #include <string>
 
 class Panel {
@@ -12,8 +13,15 @@ protected:
   std::string text;
 
 public:
+  // Constructors and destructors
   Panel();
   Panel(Vector2 _offset, int _width, int _height, std::string _text);
+
+  // Getters and setters
+  Vector2 get_offset();
+  int get_width();
+  int get_height();
+  std::string get_text();
 };
 
 #endif
