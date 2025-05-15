@@ -2,11 +2,13 @@
 #include "raylib.h"
 
 Renderer::Renderer() {
-  block_size = 0;
-  board_offset = (Vector2){0.0, 0.0};
+  block_size = 16;
+  width = 800;
+  height = 600;
 }
 
-Renderer::Renderer(int _block_size, Vector2 _board_offset) {
+Renderer::Renderer(int _block_size, int _width, int _height) {
   block_size = _block_size;
-  board_offset = _board_offset;
+  width = _width;
+  height = _height;
 }

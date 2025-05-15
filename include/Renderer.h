@@ -6,11 +6,12 @@
 class Renderer {
 private:
   int block_size;
-  Vector2 board_offset;
+  int width;
+  int height;
 
 public:
   Renderer();
-  Renderer(int _block_size, Vector2 _board_offset);
+  Renderer(int _block_size, int _width, int _height);
 };
 
 #endif
