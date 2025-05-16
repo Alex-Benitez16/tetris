@@ -15,7 +15,7 @@ This is an object oriented implementation of the Tetris game built using [Raylib
 - A c++ compiler (preferrably gcc)
 - Cmake 
 
-> *Note*: If you do not have cmake installed, here is a quick installation guide.
+> *Note*: If you do not have cmake installed, [here](./cmake_guide.md) is a quick installation guide.
 
 ### Steps
 
