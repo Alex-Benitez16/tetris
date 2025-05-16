@@ -44,4 +44,11 @@ cd build
 ![UML](./Tetris.png)
 
 - **Game**: Is the main class, and almost everything is composed to it. It holds all the game object and state, and has the three main functions `init()`, `update()`, and `draw()`.
+- **Renderer**: Here are encapsulated all the functions and methods that deal with the rendering of the game using Raylib.
+- **Pice**: Is the base class for the three kinds of pieces, `Piece_o`, `Piece_l`, and `Piece_std`. Their differences lie in the rotation methods. 
+- **Board**: Contains an array with all occuppied cells. It deals with all the game logic regarding the main board.
+- **Preview**: Is the class that manages the extra windows, such as the hold window and the next pieces window. 
 
+## Controls
+
+*To be defined*
