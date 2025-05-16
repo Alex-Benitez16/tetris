@@ -4,6 +4,7 @@
 #include "additional.h"
 #include "board.h"
 #include "piece.h"
+#include "raylib.h"
 #include "renderer.h"
 #include <string>
 
@@ -20,6 +21,8 @@ private:
   bool game_over;
   double fall_speed;
   int timer;
+
+  int block_size;
 
 public:
   // Constructors and destructors

@@ -15,6 +15,8 @@ Game::Game() {
   game_over = false;
   fall_speed = 10.0;
   timer = 0;
+
+  block_size = 0;
 }
 
 Game::Game(int _block_size, int _width, int _height, Color _background_color,
@@ -33,6 +35,8 @@ Game::Game(int _block_size, int _width, int _height, Color _background_color,
   game_over = 0;
   fall_speed = _fall_speed;
   timer = 0;
+
+  block_size = _block_size;
 }
 
 Game::~Game() {
@@ -57,6 +61,9 @@ void Game::set_current_piece(Piece *_current_piece) {
     delete current_piece;
   }
   current_piece = _current_piece;
+  Vector2 _piece_position =
+      (Vector2){-2.0, (float)((int)(board.get_width() / block_size / 2))};
+  board.set_piece_position(_piece_position);
 }
 void Game::set_next_piece(Piece *_next_piece) {
   if (next_piece) {

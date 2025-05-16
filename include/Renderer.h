@@ -22,6 +22,9 @@ public:
   Renderer(int _block_size, int _width, int _height, Color _background_color);
   ~Renderer();
 
+  // Getters and setters
+  int get_block_size();
+
   // Main functions
   void init_window();
   void close_window();

@@ -1,11 +1,25 @@
 #include "../include/additional.h"
 #include "../include/board.h"
 #include "../include/game.h"
+#include "../include/piece-o.h"
 #include "../include/renderer.h"
 #include "raylib.h"
 
+#define BLOCK_SIZE 16
+#define WIDTH 50
+#define HEIGHT 25
+
 int main() {
-  Game game(16, 800, 400, BLACK, 10, (Vector2){350, 20});
+  int window_width = BLOCK_SIZE * WIDTH;
+  int window_height = BLOCK_SIZE * WIDTH;
+  double fall_speed = 10.0;
+  Vector2 offset = (Vector2){
+      (float)((int)(window_width / 2) - GRID_WIDTH * (int)(BLOCK_SIZE / 2)),
+      (float)((int)(window_height / 2) - GRID_HEIGHT * (int)(BLOCK_SIZE / 2))};
+
+  Game game(BLOCK_SIZE, window_width, window_height, BLACK, fall_speed,
+            (Vector2){350, 20});
+
   game.set_current_piece(new Piece());
   game.set_next_piece(new Piece());
   game.set_held_piece(new Piece());

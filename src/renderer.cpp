@@ -19,6 +19,9 @@ Renderer::Renderer(int _block_size, int _width, int _height,
 
 Renderer::~Renderer() {}
 
+// Getters and setters
+int Renderer::get_block_size() { return block_size; }
+
 // Helper functions
 
 void Renderer::draw_board_margin(Board board) {
