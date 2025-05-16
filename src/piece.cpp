@@ -8,7 +8,7 @@ Piece::Piece() {
   }
 }
 
-Piece::Piece(char _shape, Color _color, Vector2 _positions[4]) {
+Piece::Piece(Color _color, Vector2 _positions[4]) {
   for (int i = 0; i < 4; i++) {
     positions[i] = _positions[i];
   }
