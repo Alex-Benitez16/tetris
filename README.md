@@ -37,7 +37,7 @@ cd build
 ./game # Or its equivalent on your platform
 ```
 
-> *Note*: The game is build within the `build` directory, but it may be nested within more files depending on the platform. Check the make logs to see exactly where it is.
+> *Note*: The game is built within the `build` directory, but it may be nested within more files depending on the platform. Check the make logs to see exactly where it is.
 
 ## UML Analysis
 
