@@ -1,3 +1,4 @@
 .clangd
 Makefile
 to_do.md
+*.puml

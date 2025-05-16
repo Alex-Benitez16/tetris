@@ -17,8 +17,7 @@ int main() {
       (float)((int)(window_width / 2) - GRID_WIDTH * (int)(BLOCK_SIZE / 2)),
       (float)((int)(window_height / 2) - GRID_HEIGHT * (int)(BLOCK_SIZE / 2))};
 
-  Game game(BLOCK_SIZE, window_width, window_height, BLACK, fall_speed,
-            (Vector2){350, 20});
+  Game game(BLOCK_SIZE, window_width, window_height, BLACK, fall_speed, offset);
 
   game.set_current_piece(new Piece());
   game.set_next_piece(new Piece());
