@@ -12,7 +12,9 @@ private:
   Vector2 piece_position;
   Piece *piece;
 
+  bool has_available_space(int x, int y);
   bool check_for_horizontal_collision(int x, int y);
+  bool piece_is_grounded();
 
 public:
   // Constructors and destructors

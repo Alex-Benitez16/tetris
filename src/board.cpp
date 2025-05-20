@@ -38,16 +38,34 @@ void Board::set_piece(Piece *_piece) {
 
 Piece Board::get_piece() { return *piece; }
 
-bool Board::check_for_horizontal_collision(int x, int y) {
+bool Board::has_available_space(int x, int y) {
   for (int i = 0; i < 4; i++) {
-    if (x + piece->get_positions()[i].x < 0 ||
-        x + piece->get_positions()[i].x >= GRID_WIDTH ||
-        y + piece->get_positions()[i].y < 0 ||
-        y + piece->get_positions()[i].y >= GRID_HEIGHT) {
+    if (grid[(int)(y + piece->get_positions()[i].y)]
+            [(int)(x + piece->get_positions()[i].x)] != BLANK) {
       return false;
     }
   }
   return true;
+}
+
+bool Board::check_for_horizontal_collision(int x, int y) {
+  for (int i = 0; i < 4; i++) {
+    if ((x + piece->get_positions()[i].x < 0 ||
+         x + piece->get_positions()[i].x >= GRID_WIDTH ||
+         y + piece->get_positions()[i].y < 0 ||
+         y + piece->get_positions()[i].y >= GRID_HEIGHT) &&
+        !has_available_space(x, y)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+bool Board::piece_is_grounded() {
+  int x = piece_position.x;
+  int y = piece_position.y;
+  y++;
+  return !has_available_space(x, y);
 }
 
 void Board::move_down() {
