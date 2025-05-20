@@ -24,6 +24,8 @@ private:
 
   int block_size;
 
+  void handle_input();
+
 public:
   // Constructors and destructors
   Game();
@@ -44,6 +46,8 @@ public:
   void set_held_piece(Piece *_held_piece);
 
   void draw();
+  void update();
+  void init();
 };
 
 #endif

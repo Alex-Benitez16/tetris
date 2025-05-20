@@ -1,4 +1,5 @@
 #include "../include/piece.h"
+#include "raylib.h"
 
 Piece::Piece() {
   color = BLANK;
@@ -15,3 +16,7 @@ Piece::Piece(Color _color, Vector2 _positions[4]) {
   color = _color;
   rotation_state = '0';
 }
+
+Vector2 *Piece::get_positions() { return positions; }
+
+Color Piece::get_color() { return color; }

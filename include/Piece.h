@@ -12,6 +12,9 @@ protected:
 public:
   Piece();
   Piece(Color _color, Vector2 _positions[4]);
+
+  Vector2 *get_positions();
+  Color get_color();
 };
 
 #endif

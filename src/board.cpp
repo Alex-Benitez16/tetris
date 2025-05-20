@@ -4,10 +4,11 @@
 Board::Board() : Panel() {
   for (int i = 0; i < GRID_HEIGHT; i++) {
     for (int j = 0; j < GRID_WIDTH; j++) {
-      grid[i][j] = 0;
+      grid[i][j] = BLANK;
     }
   }
   piece_position = (Vector2){0.0, 0.0};
+  piece = nullptr;
 }
 
 Board::Board(Vector2 _offset, int _width, int _height, std::string _text)
@@ -15,10 +16,11 @@ Board::Board(Vector2 _offset, int _width, int _height, std::string _text)
 
   for (int i = 0; i < GRID_HEIGHT; i++) {
     for (int j = 0; j < GRID_WIDTH; j++) {
-      grid[i][j] = 0;
+      grid[i][j] = BLANK;
     }
   }
   piece_position = (Vector2){0.0, 0.0};
+  piece = nullptr;
 };
 
 void Board::set_piece_position(Vector2 _piece_position) {
@@ -26,3 +28,57 @@ void Board::set_piece_position(Vector2 _piece_position) {
 }
 
 Vector2 Board::get_piece_position() { return piece_position; }
+
+void Board::set_piece(Piece *_piece) {
+  if (piece) {
+    delete piece;
+  }
+  piece = _piece;
+}
+
+Piece Board::get_piece() { return *piece; }
+
+bool Board::check_for_horizontal_collision(int x, int y) {
+  for (int i = 0; i < 4; i++) {
+    if (x + piece->get_positions()[i].x < 0 ||
+        x + piece->get_positions()[i].x >= GRID_WIDTH ||
+        y + piece->get_positions()[i].y < 0 ||
+        y + piece->get_positions()[i].y >= GRID_HEIGHT) {
+      return false;
+    }
+  }
+  return true;
+}
+
+void Board::move_down() {
+  int x = piece_position.x;
+  int y = piece_position.y;
+  y++;
+  piece_position = {(float)x, (float)y};
+}
+
+void Board::move_right() {
+  int x = piece_position.x;
+  int y = piece_position.y;
+  x++;
+  if (check_for_horizontal_collision(x, y)) {
+    piece_position = {(float)x, (float)y};
+  }
+}
+
+void Board::move_left() {
+  int x = piece_position.x;
+  int y = piece_position.y;
+  x--;
+  if (check_for_horizontal_collision(x, y)) {
+    piece_position = {(float)x, (float)y};
+  }
+}
+
+void Board::merge() {
+  for (int i = 0; i < 4; i++) {
+    grid[(int)(piece_position.y + piece->get_positions()[i].y)]
+        [(int)(piece_position.x + piece->get_positions()[i].x)] =
+            piece->get_color();
+  }
+}

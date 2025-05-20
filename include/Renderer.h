@@ -34,6 +34,8 @@ public:
   void end_drawing();
   void clear_background();
   void draw_board(Board board);
+
+  void draw_piece(Board board);
 };
 
 #endif

@@ -62,8 +62,9 @@ void Game::set_current_piece(Piece *_current_piece) {
   }
   current_piece = _current_piece;
   Vector2 _piece_position =
-      (Vector2){-2.0, (float)((int)(board.get_width() / block_size / 2))};
+      (Vector2){(float)((int)(board.get_width() / block_size / 2 - 1)), -2.0};
   board.set_piece_position(_piece_position);
+  board.set_piece(_current_piece);
 }
 void Game::set_next_piece(Piece *_next_piece) {
   if (next_piece) {
@@ -78,9 +79,26 @@ void Game::set_held_piece(Piece *_held_piece) {
   held_piece = _held_piece;
 }
 
+void Game::init() { renderer.init_window(); }
+
 void Game::draw() {
   renderer.begin_drawing();
   renderer.clear_background();
   renderer.draw_board(board);
+  renderer.draw_piece(board);
   renderer.end_drawing();
 }
+
+void Game::handle_input() {
+  if (IsKeyPressed(KEY_DOWN)) {
+    board.move_down();
+  }
+  if (IsKeyPressed(KEY_RIGHT)) {
+    board.move_right();
+  }
+  if (IsKeyPressed(KEY_LEFT)) {
+    board.move_left();
+  }
+}
+
+void Game::update() { handle_input(); }
