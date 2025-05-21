@@ -66,12 +66,12 @@ void Renderer::draw_board(Board board) {
 void Renderer::draw_piece(Board board) {
   for (int i = 0; i < 4; i++) {
     int posX = board.get_offset().x +
-               board.get_piece().get_positions()[i].x * block_size +
+               board.get_piece()->get_positions()[i].x * block_size +
                board.get_piece_position().x * block_size;
     int posY = board.get_offset().y +
-               board.get_piece().get_positions()[i].y * block_size +
+               board.get_piece()->get_positions()[i].y * block_size +
                board.get_piece_position().y * block_size;
     DrawRectangle(posX, posY, block_size, block_size,
-                  board.get_piece().get_color());
+                  board.get_piece()->get_color());
   }
 }
