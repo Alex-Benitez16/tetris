@@ -12,4 +12,18 @@ inline bool operator==(const Color &a, const Color &b) {
 
 inline bool operator!=(const Color &a, const Color &b) { return !(a == b); }
 
+#ifdef YELLOW
+#undef YELLOW
+#define YELLOW                                                                 \
+  (Color) { 255, 255, 0, 1 }
+#endif
+
+inline Vector2 operator+(Vector2 a, Vector2 b) {
+  return Vector2{a.x + b.x, a.y + b.y};
+}
+
+inline Vector2 operator-(Vector2 a, Vector2 b) {
+  return Vector2{a.x - b.x, a.y - b.y};
+}
+
 #endif

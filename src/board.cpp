@@ -9,6 +9,8 @@ Board::Board() : Panel() {
   }
   piece_position = (Vector2){0.0, 0.0};
   piece = nullptr;
+  piece_grounded_rotation = 0;
+  piece_delay = 0.0;
 }
 
 Board::Board(Vector2 _offset, int _width, int _height, std::string _text)
@@ -21,6 +23,8 @@ Board::Board(Vector2 _offset, int _width, int _height, std::string _text)
   }
   piece_position = (Vector2){0.0, 0.0};
   piece = nullptr;
+  piece_grounded_rotation = 0;
+  piece_delay = 0.0;
 };
 
 void Board::set_piece_position(Vector2 _piece_position) {
@@ -36,7 +40,7 @@ void Board::set_piece(Piece *_piece) {
   piece = _piece;
 }
 
-Piece Board::get_piece() { return *piece; }
+Piece *Board::get_piece() { return piece; }
 
 bool Board::has_available_space(int x, int y) {
   for (int i = 0; i < 4; i++) {
@@ -98,5 +102,17 @@ void Board::merge() {
     grid[(int)(piece_position.y + piece->get_positions()[i].y)]
         [(int)(piece_position.x + piece->get_positions()[i].x)] =
             piece->get_color();
+  }
+}
+
+void Board::reset_delay() { piece_delay = 0; }
+
+void Board::place_piece() {
+  if (piece_is_grounded()) {
+    piece_delay += GetFrameTime();
+  }
+  if (piece_delay >= 0.5) {
+    merge();
+    // TODO: add piece_reset() or something
   }
 }

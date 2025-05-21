@@ -23,7 +23,7 @@ int main() {
 
   Vector2 positions[4] = {(Vector2){0, 0}, (Vector2){1, 0}, (Vector2){1, 1},
                           (Vector2){2, 1}};
-  game.set_current_piece(new Piece_o(BLUE, positions));
+  game.set_current_piece(new Piece_o());
   game.set_next_piece(new Piece());
   game.set_held_piece(new Piece());
 
