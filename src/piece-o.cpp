@@ -3,6 +3,8 @@
 
 #include "../include/additional.h"
 
+#include <iostream>
+
 // Constructors and destructors
 Piece_o::Piece_o()
     : Piece(YELLOW, (Vector2[4]){(Vector2){1, 0}, (Vector2){2, 0},

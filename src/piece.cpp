@@ -2,16 +2,18 @@
 #include "raylib.h"
 #include <random>
 
+#include <iostream>
+
 Piece::Piece() {
   color = BLANK;
   for (int i = 0; i < 4; i++) {
     positions[i] = (Vector2){0.0, 0.0};
-    rotation_state = 0;
-    rotation_table[0] = '0';
-    rotation_table[1] = 'R';
-    rotation_table[2] = '2';
-    rotation_table[3] = 'L';
   }
+  rotation_state = 0;
+  rotation_table[0] = '0';
+  rotation_table[1] = 'R';
+  rotation_table[2] = '2';
+  rotation_table[3] = 'L';
 }
 
 Piece::Piece(Color _color, Vector2 _positions[4]) {

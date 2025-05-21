@@ -4,6 +4,8 @@
 #include "board.h"
 #include "raylib.h"
 
+#include "additional.h"
+
 class Renderer {
 private:
   int block_size;

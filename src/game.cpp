@@ -1,6 +1,8 @@
 #include "../include/game.h"
 #include "raylib.h"
 
+#include <iostream>
+
 // Constructors and Destructors
 
 Game::Game() {
@@ -58,6 +60,7 @@ Renderer *Game::get_renderer() { return &renderer; }
 
 void Game::set_current_piece(Piece *_current_piece) {
   if (current_piece) {
+    board.set_piece(nullptr);
     delete current_piece;
   }
   current_piece = _current_piece;
@@ -79,6 +82,22 @@ void Game::set_held_piece(Piece *_held_piece) {
   held_piece = _held_piece;
 }
 
+void Game::debug() {
+  DrawText(TextFormat("Positions: (%d, %d) \nSqure 1: (%f, %f)\nSqure 2: (%f, "
+                      "%f)\nSqure 3: (%f, %f)\nSqure 4: (%f, %f)",
+                      (int)board.get_piece_position().x,
+                      (int)board.get_piece_position().y,
+                      current_piece->get_positions()[0].x,
+                      current_piece->get_positions()[0].y,
+                      current_piece->get_positions()[1].x,
+                      current_piece->get_positions()[1].y,
+                      current_piece->get_positions()[2].x,
+                      current_piece->get_positions()[2].y,
+                      current_piece->get_positions()[3].x,
+                      current_piece->get_positions()[3].y),
+           0, 0, 16, RAYWHITE);
+}
+
 void Game::init() { renderer.init_window(); }
 
 void Game::draw() {
@@ -86,6 +105,7 @@ void Game::draw() {
   renderer.clear_background();
   renderer.draw_board(board);
   renderer.draw_piece(board);
+  debug();
   renderer.end_drawing();
 }
 

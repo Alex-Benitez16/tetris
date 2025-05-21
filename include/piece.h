@@ -1,8 +1,9 @@
 #ifndef PIECE_H
 #define PIECE_H
 
-#include "additional.h"
 #include "raylib.h"
+
+#include "additional.h"
 
 class Piece {
 protected:

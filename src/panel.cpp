@@ -16,6 +16,8 @@ Panel::Panel(Vector2 _offset, int _width, int _height, std::string _text) {
   text = _text;
 }
 
+Panel::~Panel() {}
+
 // Getters and setters
 Vector2 Panel::get_offset() { return offset; }
 int Panel::get_width() { return width; }

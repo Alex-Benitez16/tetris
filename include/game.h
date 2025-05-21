@@ -1,12 +1,13 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "additional.h"
 #include "board.h"
 #include "piece.h"
 #include "raylib.h"
 #include "renderer.h"
 #include <string>
+
+#include "additional.h"
 
 class Game {
 private:
@@ -44,6 +45,8 @@ public:
   void set_current_piece(Piece *_current_piece);
   void set_next_piece(Piece *_next_piece);
   void set_held_piece(Piece *_held_piece);
+
+  void debug();
 
   void draw();
   void update();

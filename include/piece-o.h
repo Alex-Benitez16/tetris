@@ -5,6 +5,8 @@
 #include "raylib.h"
 #include <map>
 
+#include "additional.h"
+
 class Piece_o : public Piece {
 private:
   void math_rotate_clockwise(Vector2 *array) override;
@@ -15,7 +17,6 @@ private:
 public:
   // Constructors and destructors
   Piece_o();
-  Piece_o(Color _color, Vector2 _positions[4]);
 
   void rotate_clockwise(Color grid[GRID_HEIGHT][GRID_WIDTH],
                         Vector2 board_position) override;

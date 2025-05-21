@@ -1,6 +1,8 @@
 #include "../include/board.h"
 #include "raylib.h"
 
+#include <iostream>
+
 Board::Board() : Panel() {
   for (int i = 0; i < GRID_HEIGHT; i++) {
     for (int j = 0; j < GRID_WIDTH; j++) {
@@ -27,18 +29,15 @@ Board::Board(Vector2 _offset, int _width, int _height, std::string _text)
   piece_delay = 0.0;
 };
 
+Board::~Board() { piece = nullptr; }
+
 void Board::set_piece_position(Vector2 _piece_position) {
   piece_position = _piece_position;
 }
 
 Vector2 Board::get_piece_position() { return piece_position; }
 
-void Board::set_piece(Piece *_piece) {
-  if (piece) {
-    delete piece;
-  }
-  piece = _piece;
-}
+void Board::set_piece(Piece *_piece) { piece = _piece; }
 
 Piece *Board::get_piece() { return piece; }
 

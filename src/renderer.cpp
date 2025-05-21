@@ -1,6 +1,8 @@
 #include "../include/renderer.h"
 #include "raylib.h"
 
+#include <iostream>
+
 // Constructors and destructors
 Renderer::Renderer() {
   block_size = 16;

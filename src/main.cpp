@@ -1,9 +1,10 @@
-#include "../include/additional.h"
 #include "../include/board.h"
 #include "../include/game.h"
 #include "../include/piece-o.h"
 #include "../include/renderer.h"
 #include "raylib.h"
+
+#include "../include/additional.h"
 
 #define BLOCK_SIZE 16
 #define WIDTH 50
@@ -21,8 +22,6 @@ int main() {
 
   game.init();
 
-  Vector2 positions[4] = {(Vector2){0, 0}, (Vector2){1, 0}, (Vector2){1, 1},
-                          (Vector2){2, 1}};
   game.set_current_piece(new Piece_o());
   // game.set_next_piece(new Piece());
   // game.set_held_piece(new Piece());
