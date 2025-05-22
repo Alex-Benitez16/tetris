@@ -119,6 +119,12 @@ void Game::handle_input() {
   if (IsKeyPressed(KEY_LEFT)) {
     board.move_left();
   }
+  if (IsKeyPressed(KEY_X)) {
+    board.rotate_clockwise();
+  }
+  if (IsKeyPressed(KEY_Z)) {
+    board.rotate_counterclockwise();
+  }
 }
 
 void Game::update() { handle_input(); }

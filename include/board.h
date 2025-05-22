@@ -38,6 +38,9 @@ public:
   void move_right();
   void move_left();
 
+  void rotate_clockwise();
+  void rotate_counterclockwise();
+
   void merge();
 
   void place_piece();

@@ -34,8 +34,8 @@ void Piece_o::rotate_clockwise(Color grid[GRID_HEIGHT][GRID_WIDTH],
                                Vector2 board_position) {
 
   // Calc offsets from rotation positions
-  Vector2 offset = offsets[rotation_table[rotation_state % 4]] -
-                   offsets[rotation_table[(rotation_state + 1) % 4]];
+  Vector2 offset = offsets[rotation_table[(rotation_state + 1) % 4]] -
+                   offsets[rotation_table[rotation_state % 4]];
 
   // Create a copy of positions named test_positions
   Vector2 test_positions[4];
@@ -57,6 +57,7 @@ void Piece_o::rotate_clockwise(Color grid[GRID_HEIGHT][GRID_WIDTH],
     for (int i = 0; i < 4; i++) {
       positions[i] = test_positions[i];
     }
+    rotation_state++;
   }
 }
 
@@ -64,8 +65,8 @@ void Piece_o::rotate_counterclockwise(Color grid[GRID_HEIGHT][GRID_WIDTH],
                                       Vector2 board_position) {
 
   // Calc offsets from rotation positions
-  Vector2 offset = offsets[rotation_table[rotation_state % 4]] -
-                   offsets[rotation_table[(rotation_state - 1) % 4]];
+  Vector2 offset = offsets[rotation_table[(rotation_state - 1) % 4]] -
+                   offsets[rotation_table[rotation_state % 4]];
 
   // Create a copy of positions named test_positions
   Vector2 test_positions[4];
@@ -85,5 +86,6 @@ void Piece_o::rotate_counterclockwise(Color grid[GRID_HEIGHT][GRID_WIDTH],
     for (int i = 0; i < 4; i++) {
       positions[i] = test_positions[i];
     }
+    rotation_state--;
   }
 }

@@ -53,10 +53,10 @@ bool Board::has_available_space(int x, int y) {
 
 bool Board::check_for_horizontal_collision(int x, int y) {
   for (int i = 0; i < 4; i++) {
-    if ((x + piece->get_positions()[i].x < 0 ||
-         x + piece->get_positions()[i].x >= GRID_WIDTH ||
-         y + piece->get_positions()[i].y < 0 ||
-         y + piece->get_positions()[i].y >= GRID_HEIGHT) &&
+    if (x + piece->get_positions()[i].x < 0 ||
+        x + piece->get_positions()[i].x >= GRID_WIDTH ||
+        y + piece->get_positions()[i].y < 0 ||
+        y + piece->get_positions()[i].y >= GRID_HEIGHT ||
         !has_available_space(x, y)) {
       return false;
     }
@@ -94,6 +94,13 @@ void Board::move_left() {
   if (check_for_horizontal_collision(x, y)) {
     piece_position = {(float)x, (float)y};
   }
+}
+
+void Board::rotate_clockwise() {
+  piece->rotate_clockwise(grid, piece_position);
+}
+void Board::rotate_counterclockwise() {
+  piece->rotate_counterclockwise(grid, piece_position);
 }
 
 void Board::merge() {
