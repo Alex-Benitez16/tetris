@@ -22,6 +22,9 @@ target_include_directories(${PROJECT_NAME} PRIVATE include)
 
 # Dependencies (existing raylib configuration)
 set(RAYLIB_VERSION 5.5)
+# Force static build and disable X11 dependencies
+set(BUILD_SHARED_LIBS OFF CACHE BOOL "Static build" FORCE)
+set(GLFW_BUILD_X11 OFF CACHE BOOL "Disable X11" FORCE)  # Critical for Linux
 find_package(raylib ${RAYLIB_VERSION} QUIET)
 if (NOT raylib_FOUND)
   include(FetchContent)
